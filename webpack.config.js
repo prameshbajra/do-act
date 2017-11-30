@@ -24,6 +24,8 @@ module.exports = {
         alias: {
             // Add key value pair for your imports ...
             TodoApp: "app/components/TodoApp.jsx",
+            TodoList: "app/components/TodoList.jsx",
+            TodoListItem: "app/components/TodoListItem.jsx",
 
             ApplicationStyles: "app/styles/app.scss"
         },
