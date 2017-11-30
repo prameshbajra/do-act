@@ -10,7 +10,6 @@
         }
     },
     "rules": {
-        "no-unused-vars": "error",
         "no-var": "error",
         "no-console": "error",
         "no-extra-semi": "error",
@@ -20,8 +19,6 @@
         "global-require": "error",
         "strict": ["error", "global"],
         "curly": "warn",
-        "consistent-return": "error",
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error"
+        "consistent-return": "error"
     }
 }
