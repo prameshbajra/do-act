@@ -2,9 +2,10 @@ import React from "react";
 
 class TodoListItem extends React.Component {
     render() {
+        const { todoItem } = this.props;
         return (
             <div>
-                {this.props.todoItem}
+                {todoItem.id}. {todoItem.text}
             </div>
         );
     }

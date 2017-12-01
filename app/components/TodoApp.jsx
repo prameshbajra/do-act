@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import TodoList from "TodoList";
+import AddTodo from "AddTodo";
 
 class MainComponent extends React.Component {
     constructor(props) {
@@ -15,15 +16,28 @@ class MainComponent extends React.Component {
                 {
                     id: 2,
                     text: "Earn a lot"
+                },
+                {
+                    id: 3,
+                    text: "Make everyone happy"
+                },
+                {
+                    id: 4,
+                    text: "Get rich"
                 }
             ]
         };
     }
+    handleAddTodo = (text) => {
+        alert(text);
+    }
     render() {
         const { todos } = this.state;
         return (
-            <div>
+            <div className="large-4 medium-4 small-centered">
+                <h1 className="text-center">Easy Todo</h1>
                 <TodoList todos={todos} />
+                <AddTodo onAddTodo={this.handleAddTodo} />
             </div>
         );
     }
