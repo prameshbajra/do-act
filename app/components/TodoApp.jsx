@@ -3,7 +3,7 @@ import React from "react";
 import TodoList from "TodoList";
 import AddTodo from "AddTodo";
 
-class MainComponent extends React.Component {
+class TodoApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,4 +42,4 @@ class MainComponent extends React.Component {
     }
 }
 
-export default MainComponent;
+export default TodoApp;
