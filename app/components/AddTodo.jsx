@@ -26,7 +26,9 @@ class AddTodo extends React.Component {
         return (
             <div>
                 <form onSubmit={this.addTodoHandler}>
-                    <input type="text" value={this.state.inputValue} onChange={this.handleInput} placeholder="What do you need to do ?" />
+                    <input type="text"
+                        ref="todoText" value={this.state.inputValue}
+                        onChange={this.handleInput} placeholder="What do you need to do ?" />
                     <button className="hollow button expanded">Add Item</button>
                 </form>
             </div>
