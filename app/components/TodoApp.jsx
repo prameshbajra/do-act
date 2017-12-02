@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
 
 import TodoList from "TodoList";
 import AddTodo from "AddTodo";

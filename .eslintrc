@@ -13,7 +13,9 @@
     },
     "rules": {
         "no-var": "error",
-        "no-console": "error",
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        "no-console": "warn",
         "no-extra-semi": "error",
         "quotes": [2, "double"],
         "no-mixed-spaces-and-tabs": "error",

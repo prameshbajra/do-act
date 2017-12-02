@@ -3,22 +3,30 @@ import React from "react";
 class AddTodo extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            inputValue: ""
+        }
+        this.addTodoHandler = this.addTodoHandler.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
-    addTodoHandler = (e) => {
-        e.preventDefault();
-        const todoItem = this.refs.todoItem.value;
+    handleInput(event) {
+        this.setState({
+            inputValue: event.target.value
+        });
+    }
+    addTodoHandler(event) {
+        event.preventDefault();
+        const todoItem = this.state.inputValue;
         if (todoItem.length > 5) {
-            this.refs.todoItem.value = "";
+            this.setState({ inputValue: "" });
             this.props.onAddTodo(todoItem);
-        } else {
-            this.refs.todoItem.focus();
         }
     }
     render() {
         return (
             <div>
                 <form onSubmit={this.addTodoHandler}>
-                    <input type="text" ref="todoItem" placeholder="What do you need to do ?" />
+                    <input type="text" value={this.state.inputValue} onChange={this.handleInput} placeholder="What do you need to do ?" />
                     <button className="hollow button expanded">Add Item</button>
                 </form>
             </div>
