@@ -2,11 +2,14 @@ import React from "react";
 
 import TodoList from "TodoList";
 import AddTodo from "AddTodo";
+import TodoSearch from "TodoSearch";
 
 class TodoApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isChecked: false,
+            searchText: "",
             todos: [
                 {
                     id: 1,
@@ -27,6 +30,14 @@ class TodoApp extends React.Component {
             ]
         };
     }
+    handleSearch = (isChecked, searchText) => {
+        debugger;
+        this.setState({
+            isChecked: isChecked,
+            searchText: searchText.toLowerCase()
+        });
+        debugger;
+    }
     handleAddTodo = (text) => {
         alert(text);
     }
@@ -35,6 +46,7 @@ class TodoApp extends React.Component {
         return (
             <div className="large-4 medium-4 small-centered">
                 <h1 className="text-center">Easy Todo</h1>
+                <TodoSearch onSearch={this.handleSearch} />
                 <TodoList todos={todos} />
                 <AddTodo onAddTodo={this.handleAddTodo} />
             </div>

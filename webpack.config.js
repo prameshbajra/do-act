@@ -27,6 +27,7 @@ module.exports = {
             TodoList: "app/components/TodoList.jsx",
             TodoListItem: "app/components/TodoListItem.jsx",
             AddTodo: "app/components/AddTodo.jsx",
+            TodoSearch: "app/components/TodoSearch.jsx",
 
             ApplicationStyles: "app/styles/app.scss"
         },
