@@ -13,7 +13,7 @@ describe("AddTodo", () => {
     // Pai aaba k garrney !! Aayena ta ...
     //
     // it("should call onAddTodo prop with legit data", () => {
-    //     const spy = jest.fn();
+    //     const spy = jest.fn(AddTodo);
     //     const addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy} />);
     //     const $el = $(ReactDOM.findDOMNode(addTodo));
     //     addTodo.refs.todoText.value = "Pramesh";
