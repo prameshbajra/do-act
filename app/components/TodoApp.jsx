@@ -1,8 +1,9 @@
 import React from "react";
 import uuidV1 from "uuid/v1";
 
-import TodoList from "TodoList";
 import AddTodo from "AddTodo";
+import TodoList from "TodoList";
+import TodoApi from "TodoApi";
 import TodoSearch from "TodoSearch";
 
 class TodoApp extends React.Component {
@@ -11,24 +12,12 @@ class TodoApp extends React.Component {
         this.state = {
             isChecked: false,
             searchText: "",
-            todos: [{
-                id: uuidV1(),
-                text: "Learn react",
-                isCompleted: false
-            }, {
-                id: uuidV1(),
-                text: "Earn a lot",
-                isCompleted: true
-            }, {
-                id: uuidV1(),
-                text: "Make everyone happy",
-                isCompleted: true
-            }, {
-                id: uuidV1(),
-                text: "Get rich",
-                isCompleted: false
-            }]
-        };
+            todos: TodoApi.getTodos()
+        }
+    }
+    // Fires when state or props change ...
+    componentDidUpdate() {
+        TodoApi.setTodos(this.state.todos);
     }
     handleToggle = (id) => {
         const updatedTodos = this.state.todos.map((todoItem) => {
@@ -65,6 +54,7 @@ class TodoApp extends React.Component {
             <div className="large-4 medium-4 small-centered">
                 <h1 className="text-center">Easy Todo</h1>
                 <TodoSearch onSearch={this.handleSearch} />
+                <hr />
                 <TodoList todos={todos} onToggle={this.handleToggle} />
                 <AddTodo onAddTodo={this.handleAddTodo} />
             </div>

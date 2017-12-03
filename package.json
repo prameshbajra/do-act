@@ -54,7 +54,8 @@
         ],
         "moduleDirectories": [
             "node_modules",
-            "./app/components"
+            "./app/components",
+            "./app/apis"
         ]
     }
 }
