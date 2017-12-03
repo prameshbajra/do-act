@@ -13,6 +13,7 @@ describe("TodoApp", () => {
 
     // Phele chali rya thyo .aheley chalena ... SO ma ques sodhhya xa ... 
     // answer aayo vanney try gari herrney paxi!!
+    // For this to pass ... in TodoApp set initial state array to [] not TodoApi stuff ...
 
     // it("should add todo ...", () => {
     //     const text = "Suzal is trying react";

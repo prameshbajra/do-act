@@ -22,8 +22,19 @@ module.exports = {
     */
     filteredTodos: (todos, isChecked, searchText) => {
         let filteredTodos = todos;
+        searchText = searchText.replace(/on/g, "");
+        filteredTodos = filteredTodos.filter((todoItem) => {
+            const text = todoItem.text.toLowerCase();
+            // indepth research here ...
+            return searchText.length === 0 || text.indexOf(searchText) > -1;
+        });
         filteredTodos = filteredTodos.filter((todoItem) => {
             return !todoItem.isCompleted || isChecked;
+        });
+        filteredTodos.sort((a, b) => {
+            if (!a.isCompleted && b.isCompleted) { return -1; }
+            else if (a.isCompleted && !b.isCompleted) { return 1; }
+            else { return 0; }
         });
         return filteredTodos;
     }

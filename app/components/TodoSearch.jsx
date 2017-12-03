@@ -7,7 +7,7 @@ class TodoSearch extends React.Component {
     handleSearch = (e) => {
         const isChecked = e.target.checked;
         const searchText = e.target.value;
-        this.props.onSearch(isChecked, searchText);
+        { this.props.onSearch(isChecked, searchText); }
     }
     render() {
         return (
