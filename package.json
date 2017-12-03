@@ -1,7 +1,7 @@
 {
-    "name": "react-down-timer",
+    "name": "do-act",
     "version": "1.0.0",
-    "description": "Making a timer app using React",
+    "description": "Making a todo app using React",
     "main": "index.js",
     "scripts": {
         "test": "jest --coverage"
@@ -44,10 +44,17 @@
         "sass-loader": "^6.0.6",
         "script-loader": "^0.7.2",
         "style-loader": "^0.19.0",
+        "uuid": "^3.1.0",
         "webpack": "^3.8.1"
     },
     "jest": {
-        "moduleFileExtensions": ["js", "jsx"],
-        "moduleDirectories": ["node_modules", "./app/components"]
+        "moduleFileExtensions": [
+            "js",
+            "jsx"
+        ],
+        "moduleDirectories": [
+            "node_modules",
+            "./app/components"
+        ]
     }
 }
