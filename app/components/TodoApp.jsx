@@ -48,14 +48,19 @@ class TodoApp extends React.Component {
             ]
         });
     }
+    /*
+    Note :  isChecked is for show completed items in TodoSearch part
+            and isCompleted is for each todo item present in the list in TodoList part ...
+    */
     render() {
-        const { todos } = this.state;
+        const { todos, isChecked, searchText } = this.state;
+        const filteredTodos = TodoApi.filteredTodos(todos, isChecked, searchText);
         return (
             <div className="large-4 medium-4 small-centered">
                 <h1 className="text-center">Easy Todo</h1>
                 <TodoSearch onSearch={this.handleSearch} />
                 <hr />
-                <TodoList todos={todos} onToggle={this.handleToggle} />
+                <TodoList todos={filteredTodos} onToggle={this.handleToggle} />
                 <AddTodo onAddTodo={this.handleAddTodo} />
             </div>
         );

@@ -10,12 +10,6 @@ describe("TodoApi", () => {
     it("should exist ... ", () => {
         expect(TodoApi).toBeTruthy();
     });
-
-    it("should setTodos ...", () => {
-
-    });
-
-    it("should getTodos ...", () => {
-
-    });
+    // Other test case will not work because actual browser is not used in testing ...
+    // It will throw a error ... localStorage not defined error pops up...
 });

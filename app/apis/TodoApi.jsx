@@ -15,5 +15,16 @@ module.exports = {
             console.log(e);
         }
         return Array.isArray(todos) ? todos : [];
+    },
+    /*
+    Note :  isChecked is for show completed items in TodoSearch part
+            and isCompleted is for each todo item present in the list in TodoList part ...
+    */
+    filteredTodos: (todos, isChecked, searchText) => {
+        let filteredTodos = todos;
+        filteredTodos = filteredTodos.filter((todoItem) => {
+            return !todoItem.isCompleted || isChecked;
+        });
+        return filteredTodos;
     }
 };

@@ -12,19 +12,17 @@ describe("TodoApp", () => {
     });
 
     // Phele chali rya thyo .aheley chalena ... SO ma ques sodhhya xa ... 
-    // answer aayo vanney try gari herrney !!
+    // answer aayo vanney try gari herrney paxi!!
 
-    it("should add todo ...", () => {
-        const text = "Suzal is trying react";
-        const todoApp = TestUtils.renderIntoDocument(<TodoApp />);
-        console.log(todoApp);
-        console.log(<TodoApp />);
-        // todoApp.state = {
-        //     todos: []
-        // }
-        // todoApp.handleAddTodo(text);
-        // expect(todoApp.state.todos[0].text).toBe(text);
-    });
+    // it("should add todo ...", () => {
+    //     const text = "Suzal is trying react";
+    //     const todoApp = TestUtils.renderIntoDocument(<TodoApp />)
+    //     todoApp.state = {
+    //         todos: []
+    //     }
+    //     todoApp.handleAddTodo(text);
+    //     expect(todoApp.state.todos[0].text).toBe(text);
+    // });
     // it("should toggle properly ...", () => {
     //     const todoItem = {
     //         id: 123,
