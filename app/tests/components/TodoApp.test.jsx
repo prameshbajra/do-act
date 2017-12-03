@@ -18,4 +18,18 @@ describe("TodoApp", () => {
 
         expect(todoApp.state.todos[0].text).toBe(text);
     });
+    it("should toggle properly ...", () => {
+        const todoItem = {
+            id: 123,
+            text: "Suzal is learning react testing",
+            isCompleted: false
+        };
+        const todoApp = TestUtils.renderIntoDocument(<TodoApp />);
+        todoApp.setState({
+            todos: [todoItem]
+        });
+        expect(todoApp.state.todos[0].isCompleted).toBe(false);
+        todoApp.handleToggle(todoItem.id);
+        expect(todoApp.state.todos[0].isCompleted).toBe(true);
+    });
 });
