@@ -2,10 +2,11 @@ import React from "react";
 
 class TodoListItem extends React.Component {
     render() {
-        const { todoItem } = this.props;
+        const { todoItem, onToggle } = this.props;
         return (
-            <div>
-                {todoItem.id}. {todoItem.text}
+            <div onClick={() => { onToggle(todoItem.id) }}>
+                <input type="checkbox" checked={todoItem.isCompleted} onChange={() => { }} />
+                {todoItem.text}
             </div>
         );
     }

@@ -11,33 +11,41 @@ class TodoApp extends React.Component {
         this.state = {
             isChecked: false,
             searchText: "",
-            todos: [
-                {
-                    id: uuidV1(),
-                    text: "Learn react"
-                },
-                {
-                    id: uuidV1(),
-                    text: "Earn a lot"
-                },
-                {
-                    id: uuidV1(),
-                    text: "Make everyone happy"
-                },
-                {
-                    id: uuidV1(),
-                    text: "Get rich"
-                }
-            ]
+            todos: [{
+                id: uuidV1(),
+                text: "Learn react",
+                isCompleted: false
+            }, {
+                id: uuidV1(),
+                text: "Earn a lot",
+                isCompleted: true
+            }, {
+                id: uuidV1(),
+                text: "Make everyone happy",
+                isCompleted: true
+            }, {
+                id: uuidV1(),
+                text: "Get rich",
+                isCompleted: false
+            }]
         };
     }
+    handleToggle = (id) => {
+        const updatedTodos = this.state.todos.map((todoItem) => {
+            if (todoItem.id === id) {
+                todoItem.isCompleted = !todoItem.isCompleted;
+            }
+            return todoItem;
+        });
+        this.setState({
+            todos: updatedTodos
+        });
+    }
     handleSearch = (isChecked, searchText) => {
-        debugger;
         this.setState({
             isChecked: isChecked,
             searchText: searchText.toLowerCase()
         });
-        debugger;
     }
     handleAddTodo = (text) => {
         this.setState({
@@ -45,7 +53,8 @@ class TodoApp extends React.Component {
                 ...this.state.todos,
                 {
                     id: uuidV1(),
-                    text: text
+                    text: text,
+                    isCompleted: false
                 }
             ]
         });
@@ -56,7 +65,7 @@ class TodoApp extends React.Component {
             <div className="large-4 medium-4 small-centered">
                 <h1 className="text-center">Easy Todo</h1>
                 <TodoSearch onSearch={this.handleSearch} />
-                <TodoList todos={todos} />
+                <TodoList todos={todos} onToggle={this.handleToggle} />
                 <AddTodo onAddTodo={this.handleAddTodo} />
             </div>
         );

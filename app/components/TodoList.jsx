@@ -8,10 +8,10 @@ class TodoList extends React.Component {
         todo: PropType.array
     }
     render() {
-        const { todos } = this.props;
+        const { todos, onToggle } = this.props;
         const renderTodos = () => {
             return todos.map((todoItem) => {
-                return <TodoListItem key={todoItem.id} todoItem={todoItem} />
+                return <TodoListItem key={todoItem.id} todoItem={todoItem} onToggle={onToggle} />
             });
         }
         return (
