@@ -60,12 +60,14 @@ class TodoApp extends React.Component {
         const { todos, isChecked, searchText } = this.state;
         const filteredTodos = TodoApi.filteredTodos(todos, isChecked, searchText);
         return (
-            <div className="large-4 medium-4 small-centered">
-                <h1 className="text-center">Easy Todo</h1>
-                <TodoSearch onSearch={this.handleSearch} />
-                <hr />
-                <TodoList todos={filteredTodos} onToggle={this.handleToggle} />
-                <AddTodo onAddTodo={this.handleAddTodo} />
+            <div className=" small-11 large-5 medium-6 small-centered">
+                <br />
+                <h2 className="text-center">Easy Todo</h2>
+                <div className="container">
+                    <TodoSearch onSearch={this.handleSearch} />
+                    <TodoList todos={filteredTodos} onToggle={this.handleToggle} />
+                    <AddTodo onAddTodo={this.handleAddTodo} />
+                </div>
             </div>
         );
     }

@@ -4,6 +4,7 @@ import momemt from "moment";
 class TodoListItem extends React.Component {
     render() {
         const { todoItem, onToggle } = this.props;
+        const todoClassName = todoItem.isCompleted ? "todo todo-completed" : "todo";
         const renderDate = () => {
             let message = "Created at - ";
             let timeStamp = todoItem.createdAt;
@@ -15,10 +16,14 @@ class TodoListItem extends React.Component {
         }
 
         return (
-            <div onClick={() => { onToggle(todoItem.id) }}>
-                <input type="checkbox" checked={todoItem.isCompleted} onChange={() => { }} />
-                <p>{todoItem.text}</p>
-                <p>{renderDate()}</p>
+            <div className={todoClassName} onClick={() => { onToggle(todoItem.id) }}>
+                <div>
+                    <input type="checkbox" checked={todoItem.isCompleted} onChange={() => { }} />
+                </div>
+                <div>
+                    <p>{todoItem.text}</p>
+                    <p className="todo-subtext">{renderDate()}</p>
+                </div>
             </div>
         );
     }
