@@ -1,5 +1,6 @@
 import React from "react";
 import uuidV1 from "uuid/v1";
+import moment from "moment";
 
 import AddTodo from "AddTodo";
 import TodoList from "TodoList";
@@ -23,6 +24,7 @@ class TodoApp extends React.Component {
         const updatedTodos = this.state.todos.map((todoItem) => {
             if (todoItem.id === id) {
                 todoItem.isCompleted = !todoItem.isCompleted;
+                todoItem.completedAt = todoItem.isCompleted ? moment().unix() : undefined;
             }
             return todoItem;
         });
@@ -43,7 +45,9 @@ class TodoApp extends React.Component {
                 {
                     id: uuidV1(),
                     text: text,
-                    isCompleted: false
+                    isCompleted: false,
+                    createdAt: moment().unix(),
+                    completedAt: undefined
                 }
             ]
         });

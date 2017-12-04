@@ -25,7 +25,6 @@ module.exports = {
         searchText = searchText.replace(/on/g, "");
         filteredTodos = filteredTodos.filter((todoItem) => {
             const text = todoItem.text.toLowerCase();
-            // indepth research here ...
             return searchText.length === 0 || text.indexOf(searchText) > -1;
         });
         filteredTodos = filteredTodos.filter((todoItem) => {
