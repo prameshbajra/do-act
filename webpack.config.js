@@ -30,7 +30,8 @@ module.exports = {
             TodoSearch: "app/components/TodoSearch.jsx",
             TodoApi: "app/apis/TodoApi.jsx",
             Actions: "app/actions/actions.jsx",
-            Reducers: "app/reducers.reducers.jsx",
+            Reducers: "app/reducers/reducers.jsx",
+            ConfigureStore: "app/store/configureStore.jsx",
 
             ApplicationStyles: "app/styles/app.scss"
         },

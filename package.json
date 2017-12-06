@@ -60,7 +60,8 @@
             "./app/components",
             "./app/apis",
             "./app/actions",
-            "./app/reducers"
+            "./app/reducers",
+            "./app/store"
         ]
     }
 }
