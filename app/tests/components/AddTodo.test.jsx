@@ -10,7 +10,7 @@ describe("AddTodo", () => {
     it("should exist ...", () => {
         expect(AddTodo).toBeTruthy();
     });
-    // Pai aaba k garrney !! Aayena ta ...
+    // khai aaba k garrney !! Aayena ta ...
     //
     // it("should call onAddTodo prop with legit data", () => {
     //     const spy = jest.fn(AddTodo);

@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { addTodo } from "Actions";
 
 class AddTodo extends React.Component {
     constructor(props) {
@@ -16,10 +19,11 @@ class AddTodo extends React.Component {
     }
     addTodoHandler(event) {
         event.preventDefault();
+        const { dispatch } = this.props;
         const todoItem = this.state.inputValue;
         if (todoItem.length > 5) {
             this.setState({ inputValue: "" });
-            this.props.onAddTodo(todoItem);
+            dispatch(addTodo(todoItem));
         }
     }
     render() {
@@ -36,4 +40,4 @@ class AddTodo extends React.Component {
     }
 }
 
-export default AddTodo;
+export default connect()(AddTodo);
