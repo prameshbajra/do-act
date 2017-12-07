@@ -1,6 +1,6 @@
 import expect from "expect";
 
-import { setSearchText, addTodo, toggleShowCompleted, toggleTodo } from "Actions";
+import { setSearchText, addTodo, toggleShowCompleted, toggleTodo, addTodoInBulk } from "Actions";
 
 describe("setSearchText() ...", () => {
     it("should generate search text action", () => {
@@ -35,6 +35,21 @@ describe("setSearchText() ...", () => {
             id: 12
         };
         const response = toggleTodo(action.id);
+        expect(response).toEqual(action);
+    });
+    it("should be adding todos in bulk", () => {
+        const todos = [{
+            id: "111",
+            text: "Anything",
+            completed: false,
+            completedAt: undefined,
+            createdAt: 33000
+        }];
+        const action = {
+            type: "ADD_TODOS_IN_BULK",
+            todos
+        }
+        const response = addTodoInBulk(todos);
         expect(response).toEqual(action);
     });
 });

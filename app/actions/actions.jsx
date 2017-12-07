@@ -15,6 +15,12 @@ const toggleShowCompleted = () => {
         type: "TOGGLE_SHOW_COMPLETED"
     }
 }
+const addTodoInBulk = (todos) => {
+    return {
+        type: "ADD_TODOS_IN_BULK",
+        todos
+    }
+}
 const toggleTodo = (id) => {
     return {
         type: "TOGGLE_TODO",
@@ -22,4 +28,4 @@ const toggleTodo = (id) => {
     }
 }
 
-export { setSearchText, addTodo, toggleShowCompleted, toggleTodo };
+export { setSearchText, addTodo, toggleShowCompleted, toggleTodo, addTodoInBulk };

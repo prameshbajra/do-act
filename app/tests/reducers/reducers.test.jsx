@@ -49,5 +49,21 @@ describe("Reducers ...", () => {
             expect(response[0].completed).toEqual(false);
             expect(response[0].completedAt).toEqual(undefined);
         });
+        it("should add existing todos", () => {
+            const todos = [{
+                id: "99",
+                text: "Suzal le garrxa jassto xa hai ",
+                completed: false,
+                createdAt: 123,
+                completedAt: 125
+            }];
+            const action = {
+                type: "ADD_TODOS_IN_BULK",
+                todos
+            };
+            const response = todoReducer(deepFreeze([]), deepFreeze(action));
+            expect(response.length).toEqual(1);
+            expect(response[0]).toEqual(todos[0]);
+        });
     });
 });
