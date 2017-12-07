@@ -5,7 +5,7 @@ import { Route, HashRouter } from "react-router-dom";
 
 import TodoApp from "TodoApp";
 import TodoApi from "TodoApi";
-import { addTodo, setSearchText, toggleShowCompleted } from "Actions";
+import { addTodo, setSearchText, toggleShowCompleted, addTodoInBulk } from "Actions";
 import { configureStore } from "ConfigureStore";
 
 require("style-loader!css-loader!foundation-sites/dist/css/foundation-float.min.css");
@@ -14,12 +14,11 @@ require("style-loader!css-loader!sass-loader!ApplicationStyles");
 const store = configureStore();
 store.subscribe(() => {
     const state = store.getState();
-    console.log("New State", state);
     TodoApi.setTodos(state.todos);
 });
 
 const initialTodos = TodoApi.getTodos();
-store.dispatch();
+store.dispatch(addTodoInBulk(initialTodos));
 
 $(document).foundation();
 
