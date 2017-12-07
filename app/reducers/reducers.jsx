@@ -25,7 +25,7 @@ const todoReducer = (state = [], action) => {
                 {
                     id: uuidV1(),
                     text: action.text,
-                    isCompleted: false,
+                    completed: false,
                     createdAt: moment().unix(),
                     completedAt: undefined
                 }
@@ -33,10 +33,10 @@ const todoReducer = (state = [], action) => {
         case "TOGGLE_TODO":
             return state.map((todo) => {
                 if (todo.id === action.id) {
-                    const nextCompleted = !todo.isCompleted;
+                    const nextCompleted = !todo.completed;
                     return {
                         ...todo,
-                        isCompleted: nextCompleted,
+                        completed: nextCompleted,
                         completedAt: nextCompleted ? moment().unix() : undefined
                     };
                 }

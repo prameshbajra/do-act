@@ -37,7 +37,7 @@ describe("Reducers ...", () => {
             const todos = [{
                 id: "99",
                 text: "Suzal le garrxa jassto xa hai ",
-                isCompleted: true,
+                completed: true,
                 createdAt: 123,
                 completedAt: 125
             }];
@@ -46,7 +46,7 @@ describe("Reducers ...", () => {
                 id: "99"
             };
             const response = todoReducer(deepFreeze(todos), deepFreeze(action));
-            expect(response[0].isCompleted).toEqual(false);
+            expect(response[0].completed).toEqual(false);
             expect(response[0].completedAt).toEqual(undefined);
         });
     });

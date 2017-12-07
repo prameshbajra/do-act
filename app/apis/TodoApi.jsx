@@ -20,7 +20,7 @@ module.exports = {
     Note :  isChecked is for show completed items in TodoSearch part
             and isCompleted is for each todo item present in the list in TodoList part ...
     */
-    filteredTodos: (todos, isChecked, searchText) => {
+    filteredTodos: (todos, showCompleted, searchText) => {
         let filteredTodos = todos;
         searchText = searchText.replace(/on/g, "");
         filteredTodos = filteredTodos.filter((todoItem) => {
@@ -28,11 +28,11 @@ module.exports = {
             return searchText.length === 0 || text.indexOf(searchText) > -1;
         });
         filteredTodos = filteredTodos.filter((todoItem) => {
-            return !todoItem.isCompleted || isChecked;
+            return !todoItem.completed || showCompleted;
         });
         filteredTodos.sort((a, b) => {
-            if (!a.isCompleted && b.isCompleted) { return -1; }
-            else if (a.isCompleted && !b.isCompleted) { return 1; }
+            if (!a.completed && b.completed) { return -1; }
+            else if (a.completed && !b.completed) { return 1; }
             else { return 0; }
         });
         return filteredTodos;

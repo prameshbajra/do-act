@@ -11,7 +11,7 @@ class TodoApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isChecked: false,
+            showCompleted: false,
             searchText: "",
             todos: TodoApi.getTodos()
         }
@@ -20,9 +20,9 @@ class TodoApp extends React.Component {
     componentDidUpdate() {
         TodoApi.setTodos(this.state.todos);
     }
-    handleSearch = (isChecked, searchText) => {
+    handleSearch = (showCompleted, searchText) => {
         this.setState({
-            isChecked: isChecked,
+            showCompleted: showCompleted,
             searchText: searchText.toLowerCase()
         });
     }
@@ -33,7 +33,7 @@ class TodoApp extends React.Component {
                 {
                     id: uuidV1(),
                     text: text,
-                    isCompleted: false,
+                    completed: false,
                     createdAt: moment().unix(),
                     completedAt: undefined
                 }
@@ -45,8 +45,8 @@ class TodoApp extends React.Component {
             and isCompleted is for each todo item present in the list in TodoList part ...
     */
     render() {
-        const { todos, isChecked, searchText } = this.state;
-        const filteredTodos = TodoApi.filteredTodos(todos, isChecked, searchText);
+        const { todos, showCompleted, searchText } = this.state;
+        const filteredTodos = TodoApi.filteredTodos(todos, showCompleted, searchText);
         return (
             <div className=" small-11 large-5 medium-6 small-centered">
                 <br />

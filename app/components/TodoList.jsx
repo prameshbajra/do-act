@@ -2,6 +2,7 @@ import React from "react";
 import PropType from "prop-types";
 import { connect } from "react-redux";
 
+import TodoApi from "TodoApi";
 import TodoListItem from "TodoListItem";
 
 class TodoList extends React.Component {
@@ -9,19 +10,19 @@ class TodoList extends React.Component {
         todo: PropType.array
     }
     render() {
-        const { todos } = this.props;
+        const { todos, showCompleted, searchText } = this.props;
         const renderTodos = () => {
             if (todos.length === 0) {
                 return (
                     <p className="container-message">Are you lazy? There's nothing to do. <br />Go ahead and add some todos.</p>
                 );
             }
-            return todos.map((todoItem) => {
+            return TodoApi.filteredTodos(todos, showCompleted, searchText).map((todoItem) => {
                 return <TodoListItem key={todoItem.id} todoItem={todoItem} />
             });
         }
         return (
-            <div className="container-footer">
+            <div className="container-footer" >
                 {renderTodos()}
             </div>
         );
@@ -30,8 +31,6 @@ class TodoList extends React.Component {
 
 export default connect(
     (state) => {
-        return {
-            todos: state.todos
-        };
+        return state;
     }
 )(TodoList);

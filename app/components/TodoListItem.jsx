@@ -7,11 +7,11 @@ import { toggleTodo } from "Actions";
 class TodoListItem extends React.Component {
     render() {
         const { todoItem, dispatch } = this.props;
-        const todoClassName = todoItem.isCompleted ? "todo todo-completed" : "todo";
+        const todoClassName = todoItem.completed ? "todo todo-completed" : "todo";
         const renderDate = () => {
             let message = "Created at - ";
             let timeStamp = todoItem.createdAt;
-            if (todoItem.isCompleted) {
+            if (todoItem.completed) {
                 message = "Completed at - ";
                 timeStamp = todoItem.completedAt;
             }
@@ -21,7 +21,7 @@ class TodoListItem extends React.Component {
         return (
             <div className={todoClassName} onClick={() => { dispatch(toggleTodo(todoItem.id)) }}>
                 <div>
-                    <input type="checkbox" checked={todoItem.isCompleted} onChange={() => { }} />
+                    <input type="checkbox" checked={todoItem.completed} onChange={() => { }} />
                 </div>
                 <div>
                     <p>{todoItem.text}</p>
