@@ -1,9 +1,12 @@
 import React from "react";
 import momemt from "moment";
+import { connect } from "react-redux";
+
+import { toggleTodo } from "Actions";
 
 class TodoListItem extends React.Component {
     render() {
-        const { todoItem, onToggle } = this.props;
+        const { todoItem, dispatch } = this.props;
         const todoClassName = todoItem.isCompleted ? "todo todo-completed" : "todo";
         const renderDate = () => {
             let message = "Created at - ";
@@ -16,7 +19,7 @@ class TodoListItem extends React.Component {
         }
 
         return (
-            <div className={todoClassName} onClick={() => { onToggle(todoItem.id) }}>
+            <div className={todoClassName} onClick={() => { dispatch(toggleTodo(todoItem.id)) }}>
                 <div>
                     <input type="checkbox" checked={todoItem.isCompleted} onChange={() => { }} />
                 </div>
@@ -29,4 +32,4 @@ class TodoListItem extends React.Component {
     }
 }
 
-export default TodoListItem;
+export default connect()(TodoListItem);

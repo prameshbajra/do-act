@@ -20,18 +20,6 @@ class TodoApp extends React.Component {
     componentDidUpdate() {
         TodoApi.setTodos(this.state.todos);
     }
-    handleToggle = (id) => {
-        const updatedTodos = this.state.todos.map((todoItem) => {
-            if (todoItem.id === id) {
-                todoItem.isCompleted = !todoItem.isCompleted;
-                todoItem.completedAt = todoItem.isCompleted ? moment().unix() : undefined;
-            }
-            return todoItem;
-        });
-        this.setState({
-            todos: updatedTodos
-        });
-    }
     handleSearch = (isChecked, searchText) => {
         this.setState({
             isChecked: isChecked,
@@ -65,7 +53,7 @@ class TodoApp extends React.Component {
                 <h2 className="text-center">Easy Todo</h2>
                 <div className="container">
                     <TodoSearch onSearch={this.handleSearch} />
-                    <TodoList todos={filteredTodos} onToggle={this.handleToggle} />
+                    <TodoList />
                     <AddTodo onAddTodo={this.handleAddTodo} />
                 </div>
             </div>

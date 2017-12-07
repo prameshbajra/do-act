@@ -1,5 +1,6 @@
 import React from "react";
 import PropType from "prop-types";
+import { connect } from "react-redux";
 
 import TodoListItem from "TodoListItem";
 
@@ -8,7 +9,7 @@ class TodoList extends React.Component {
         todo: PropType.array
     }
     render() {
-        const { todos, onToggle } = this.props;
+        const { todos } = this.props;
         const renderTodos = () => {
             if (todos.length === 0) {
                 return (
@@ -16,7 +17,7 @@ class TodoList extends React.Component {
                 );
             }
             return todos.map((todoItem) => {
-                return <TodoListItem key={todoItem.id} todoItem={todoItem} onToggle={onToggle} />
+                return <TodoListItem key={todoItem.id} todoItem={todoItem} />
             });
         }
         return (
@@ -27,4 +28,10 @@ class TodoList extends React.Component {
     }
 }
 
-export default TodoList;
+export default connect(
+    (state) => {
+        return {
+            todos: state.todos
+        };
+    }
+)(TodoList);

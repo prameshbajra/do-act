@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { Route, HashRouter } from "react-router-dom";
 
 import TodoApp from "TodoApp";
@@ -15,6 +16,7 @@ store.subscribe(() => {
 });
 
 store.dispatch(addTodo("Getting dooooomed !!"));
+store.dispatch(addTodo("I mean how the fuck is this even working?"));
 store.dispatch(setSearchText("dooooomed"));
 store.dispatch(toggleShowCompleted());
 
@@ -22,8 +24,10 @@ $(document).foundation();
 
 ReactDOM.render(
     <HashRouter>
-        <Route path="/" component={TodoApp} >
-        </Route>
+        <Provider store={store}>
+            <Route path="/" component={TodoApp} >
+            </Route>
+        </Provider>
     </HashRouter>,
     document.getElementById("app")
 );
