@@ -2,7 +2,7 @@ import React from "react";
 import momemt from "moment";
 import { connect } from "react-redux";
 
-import { toggleTodo } from "Actions";
+import { toggleTodo, startToggleTodo } from "Actions";
 
 class TodoListItem extends React.Component {
     render() {
@@ -19,7 +19,7 @@ class TodoListItem extends React.Component {
         }
 
         return (
-            <div className={todoClassName} onClick={() => { dispatch(toggleTodo(todoItem.id)) }}>
+            <div className={todoClassName} onClick={() => { dispatch(startToggleTodo(todoItem.id, !todoItem.completed)) }}>
                 <div>
                     <input type="checkbox" checked={todoItem.completed} onChange={() => { }} />
                 </div>
