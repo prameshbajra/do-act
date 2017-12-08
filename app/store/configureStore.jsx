@@ -1,4 +1,5 @@
-import { compose, combineReducers, createStore } from "redux";
+import { compose, combineReducers, createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 import { searchTextReducer, showCompletedReducer, todoReducer } from "Reducers";
 
@@ -8,7 +9,8 @@ const configureStore = () => {
         showCompleted: showCompletedReducer,
         todos: todoReducer
     });
-    const store = createStore(reducer, compose(
+    const store = createStore(reducer, initialState, compose(
+        applyMiddleware(thunk),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     ));
     return store;
