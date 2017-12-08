@@ -46,13 +46,19 @@ describe("Reducers ...", () => {
                 createdAt: 123,
                 completedAt: 125
             }];
+            const updates = {
+                completed: false,
+                completedAt: null
+            };
             const action = {
-                type: "TOGGLE_TODO",
-                id: "99"
+                type: "UPDATE_TODO",
+                id: todos[0].id,
+                updates
             };
             const response = todoReducer(deepFreeze(todos), deepFreeze(action));
-            expect(response[0].completed).toEqual(false);
-            expect(response[0].completedAt).toEqual(undefined);
+            expect(response[0].completed).toEqual(updates.completed);
+            expect(response[0].completedAt).toEqual(updates.completedAt);
+            expect(response[0].text).toEqual(todos[0].text);
         });
         it("should add existing todos", () => {
             const todos = [{
