@@ -28,7 +28,11 @@ module.exports = {
             TodoListItem: "app/components/TodoListItem.jsx",
             AddTodo: "app/components/AddTodo.jsx",
             TodoSearch: "app/components/TodoSearch.jsx",
+
             TodoApi: "app/apis/TodoApi.jsx",
+
+            Firebase: "app/firebase/index.js",
+
             Actions: "app/actions/actions.jsx",
             Reducers: "app/reducers/reducers.jsx",
             ConfigureStore: "app/store/configureStore.jsx",

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addTodo } from "Actions";
+import { startAddTodo } from "Actions";
 
 class AddTodo extends React.Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class AddTodo extends React.Component {
         const todoItem = this.state.inputValue;
         if (todoItem.length > 5) {
             this.setState({ inputValue: "" });
-            dispatch(addTodo(todoItem));
+            dispatch(startAddTodo(todoItem));
         }
     }
     render() {

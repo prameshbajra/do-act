@@ -22,13 +22,7 @@ const todoReducer = (state = [], action) => {
         case "ADD_TODO":
             return [
                 ...state,
-                {
-                    id: uuidV1(),
-                    text: action.text,
-                    completed: false,
-                    createdAt: moment().unix(),
-                    completedAt: undefined
-                }
+                action.todo
             ];
         case "ADD_TODOS_IN_BULK":
             return [...state, ...action.todos];

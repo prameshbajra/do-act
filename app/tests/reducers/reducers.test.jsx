@@ -27,11 +27,16 @@ describe("Reducers ...", () => {
         it("should add todos", () => {
             const action = {
                 type: "ADD_TODO",
-                text: "Suzal is writing test cases for redux."
+                todo: {
+                    id: "123",
+                    text: "Something",
+                    completed: false,
+                    createdAt: 13435
+                }
             }
             const response = todoReducer(deepFreeze([]), deepFreeze(action));
             expect(response.length).toEqual(1);
-            expect(response[0].text).toEqual(action.text);
+            expect(response[0]).toEqual(action.todo);
         });
         it("should update the toggle ", () => {
             const todos = [{

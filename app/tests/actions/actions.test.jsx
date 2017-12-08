@@ -15,9 +15,14 @@ describe("setSearchText() ...", () => {
     it("should generate add todo text action", () => {
         const action = {
             type: "ADD_TODO",
-            text: "Some text again"
+            todo: {
+                id: "123",
+                text: "Something here",
+                completed: false,
+                createdAt: 3123
+            }
         };
-        const response = addTodo(action.text);
+        const response = addTodo(action.todo);
         expect(response).toEqual(action);
     });
 

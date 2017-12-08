@@ -9,7 +9,7 @@ const configureStore = () => {
         showCompleted: showCompletedReducer,
         todos: todoReducer
     });
-    const store = createStore(reducer, initialState, compose(
+    const store = createStore(reducer, compose(
         applyMiddleware(thunk),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     ));
