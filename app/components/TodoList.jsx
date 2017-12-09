@@ -12,12 +12,13 @@ class TodoList extends React.Component {
     render() {
         const { todos, showCompleted, searchText } = this.props;
         const renderTodos = () => {
-            if (todos.length === 0) {
+            let filteredTodos = TodoApi.filteredTodos(todos, showCompleted, searchText);
+            if (filteredTodos.length === 0) {
                 return (
                     <p className="container-message">Are you lazy? There's nothing to do. <br />Go ahead and add some todos.</p>
                 );
             }
-            return TodoApi.filteredTodos(todos, showCompleted, searchText).map((todoItem) => {
+            return filteredTodos.map((todoItem) => {
                 return <TodoListItem key={todoItem.id} todoItem={todoItem} />
             });
         }
