@@ -1,4 +1,6 @@
-# Todo Application using REACT
+<h1 align = "center"> Todo Application </h1>
+
+<h6 align = "center"> React + Redux + Firebase + Expect + Jest + Mocha + Karma </h6>
 
 Using react to create a effecient, convienent `Todo` application.
 
@@ -11,3 +13,9 @@ Use this by :
 - `node server.js`
 
 - `webpack -w` or just `webpack`
+
+__ For testing __
+
+- `jest` or `jest --coverage`
+
+- `npm test`
