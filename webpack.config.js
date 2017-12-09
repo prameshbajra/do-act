@@ -4,7 +4,7 @@ const envFile = require("node-env-file");
 
 // process.env.NODE_ENV = process.env.NODE_ENV || "development";
 try {
-    envFile(path.join(__dirname, "config/test.env"))
+    envFile(path.join(__dirname, "config/development.env"))
 } catch (e) {
     console.log(e);
 }
