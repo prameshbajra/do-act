@@ -13,6 +13,22 @@ const addTodo = (todo) => {
         todo
     };
 }
+const startAddTodos = () => {
+    let parseTodo = [];
+    return (dispatch, getState) => {
+        const todosRef = firebaseRef.child("todos");
+        return todosRef.once("value").then((snapshot) => {
+            const todos = snapshot.val() || {};
+            Object.keys(todos).forEach((todoId) => {
+                parseTodo.push({
+                    id: todoId,
+                    ...todos[todoId]
+                });
+            });
+            dispatch(addTodoInBulk(parseTodo));
+        });
+    }
+}
 const toggleShowCompleted = () => {
     return {
         type: "TOGGLE_SHOW_COMPLETED"
@@ -61,4 +77,13 @@ const startToggleTodo = (id, completed) => {
     }
 }
 
-export { setSearchText, addTodo, toggleShowCompleted, updateTodo, addTodoInBulk, startAddTodo, startToggleTodo };
+export {
+    setSearchText,
+    addTodo,
+    toggleShowCompleted,
+    updateTodo,
+    addTodoInBulk,
+    startAddTodo,
+    startToggleTodo,
+    startAddTodos
+};
