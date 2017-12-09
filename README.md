@@ -1,7 +1,8 @@
 <h1 align = "center"> Todo Application </h1>
 
 <h6 align = "center"> React + Redux + Firebase + Expect + Jest + Mocha + Karma </h6>
-
+<hr/>
+<br/>
 Using react to create a effecient, convienent `Todo` application.
 
 :book: :book: :book: :book: :book:
@@ -14,7 +15,7 @@ Use this by :
 
 - `webpack -w` or just `webpack`
 
-__ For testing __
+__For testing__
 
 - `jest` or `jest --coverage`
 

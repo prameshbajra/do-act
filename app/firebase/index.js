@@ -2,11 +2,11 @@ import firebase from "firebase";
 
 try {
     const config = {
-        apiKey: "AIzaSyD7VIlOtd11vTl1VvxbLh9f3lO3pmfAXvU",
-        authDomain: "do-act.firebaseapp.com",
-        databaseURL: "https://do-act.firebaseio.com",
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        databaseURL: process.env.DATABASE_URL,
         projectId: "do-act",
-        storageBucket: "do-act.appspot.com",
+        storageBucket: process.env.STORAGE_BUCKET,
         messagingSenderId: "592625803168"
     };
     firebase.initializeApp(config);
