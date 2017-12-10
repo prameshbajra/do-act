@@ -17,6 +17,17 @@ const showCompletedReducer = (state = false, action) => {
     }
 }
 
+const authReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "LOGIN":
+            return {
+                uid: action.uid
+            }
+        case "LOGOUT": return {};
+        default: return state
+    }
+}
+
 const todoReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_TODO":
@@ -40,4 +51,4 @@ const todoReducer = (state = [], action) => {
     }
 }
 
-export { searchTextReducer, showCompletedReducer, todoReducer };
+export { searchTextReducer, showCompletedReducer, authReducer, todoReducer };

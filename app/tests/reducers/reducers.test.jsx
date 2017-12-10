@@ -1,7 +1,7 @@
 import expect from "expect";
 import deepFreeze from "deep-freeze-strict";
 
-import { searchTextReducer, showCompletedReducer, todoReducer } from "Reducers";
+import { searchTextReducer, showCompletedReducer, authReducer, todoReducer } from "Reducers";
 
 describe("Reducers ...", () => {
     describe("searchTextReducer()", () => {
@@ -75,6 +75,26 @@ describe("Reducers ...", () => {
             const response = todoReducer(deepFreeze([]), deepFreeze(action));
             expect(response.length).toEqual(1);
             expect(response[0]).toEqual(todos[0]);
+        });
+    });
+    describe("Auth reducer ...", () => {
+        it("should store uid on login", () => {
+            const action = {
+                type: "LOGIN",
+                uid: "dfkjafkj3h4jhfilf"
+            };
+            const response = authReducer(undefined, deepFreeze(action));
+            expect(response).toEqual({ uid: action.uid });
+        });
+        it("should wipe auth on logout", () => {
+            const authData = {
+                uid: "askdfgqlwjejkhwqrq43urbob347fg83uy"
+            };
+            const action = {
+                type: "LOGOUT"
+            };
+            const response = authReducer(deepFreeze(authData), deepFreeze(action));
+            expect(response).toEqual({});
         });
     });
 });

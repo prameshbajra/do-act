@@ -13,6 +13,17 @@ const addTodo = (todo) => {
         todo
     };
 }
+const login = (uid) => {
+    return {
+        type: "LOGIN",
+        uid
+    }
+}
+const logout = () => {
+    return {
+        type: "LOGOUT"
+    }
+}
 const startAddTodos = () => {
     let parseTodo = [];
     return (dispatch, getState) => {
@@ -103,5 +114,7 @@ export {
     startToggleTodo,
     startAddTodos,
     startLogin,
-    startLogout
+    startLogout,
+    login,
+    logout
 };

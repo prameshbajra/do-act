@@ -10,12 +10,29 @@ import {
     updateTodo,
     addTodoInBulk,
     startAddTodo,
+    login,
+    logout,
     startToggleTodo
 } from "Actions";
 
 const createMockStore = configureMockStore([thunk]);
 
-describe("setSearchText() ...", () => {
+describe("Actions ...", () => {
+    it("should generate login object ...", () => {
+        const action = {
+            type: "LOGIN",
+            uid: "afjhhfjh2jhkj1h1"
+        };
+        const response = login(action.uid);
+        expect(response).toEqual(action);
+    });
+    it("should generate log out action object", () => {
+        const action = {
+            type: "LOGOUT"
+        };
+        const response = logout();
+        expect(response).toEqual(action);
+    });
     it("should generate search text action", () => {
         const action = {
             type: "SET_SEARCH_TEXT",

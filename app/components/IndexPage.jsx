@@ -1,19 +1,27 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 import TodoApp from "TodoApp";
 import LoginPage from "LoginPage";
 
+import { login, logout } from "Actions";
+
+import { configureStore } from "ConfigureStore";
+
 import firebase from "Firebase";
 
+const store = configureStore();
 class IndexPage extends React.Component {
     constructor(props) {
         super(props);
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
+                store.dispatch(login(user.uid));
                 this.props.history.replace("/todoApp");
             }
             else {
+                store.dispatch(logout());
                 this.props.history.replace("/");
             }
         });
@@ -29,4 +37,4 @@ class IndexPage extends React.Component {
         );
     }
 }
-export default IndexPage;
+export default connect()(IndexPage);
