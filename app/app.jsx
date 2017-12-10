@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Route, HashRouter, Router } from "react-router-dom";
+import { Route, HashRouter, Redirect } from "react-router-dom";
 
 import IndexPage from "IndexPage";
 import TodoApi from "TodoApi";

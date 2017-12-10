@@ -1,6 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { startLogin, startLogout } from "Actions";
 
 class LoginPage extends React.Component {
+    onLogin = () => {
+        const { dispatch } = this.props;
+        dispatch(startLogin());
+    }
     render() {
         return (
             <div>
@@ -9,7 +16,7 @@ class LoginPage extends React.Component {
                 <hr />
                 <div className="row">
                     <div className="columns small-centered small-10 medium-6 large-4">
-                        <button className="button expanded hollow info">
+                        <button onClick={this.onLogin} className="button expanded hollow info">
                             Login with your Github Account
                         </button>
                         <button className="button expanded hollow info disabled">
@@ -22,4 +29,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage;
+export default connect()(LoginPage);
