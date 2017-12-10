@@ -24,12 +24,15 @@ const logout = () => {
         type: "LOGOUT"
     }
 }
+let uidG = ""; // Beacouse getState was not working for startAddTodo () ...
 const startAddTodos = () => {
-    let parseTodo = [];
     return (dispatch, getState) => {
-        const todosRef = firebaseRef.child("todos");
+        const uid = getState().auth.uid;
+        uidG = uid;
+        const todosRef = firebaseRef.child(`users/${uid}/todos`);
         return todosRef.once("value").then((snapshot) => {
             const todos = snapshot.val() || {};
+            let parseTodo = [];
             Object.keys(todos).forEach((todoId) => {
                 parseTodo.push({
                     id: todoId,
@@ -60,24 +63,26 @@ const updateTodo = (id, updates) => {
 }
 const startAddTodo = (text) => {
     return (dispatch, getState) => {
+        const uid = getState().auth.uid || uidG;
         const todo = {
             text,
             completed: false,
             createdAt: moment().unix(),
             completedAt: null
         };
-        const todoRef = firebaseRef.child("todos").push(todo);
-        todoRef.then(() => {
+        const todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
+        return todoRef.then(() => {
             dispatch(addTodo({
                 ...todo,
                 id: todoRef.key
             }));
         });
-    }
+    };
 }
 const startToggleTodo = (id, completed) => {
     return (dispatch, getState) => {
-        const todoRef = firebaseRef.child(`todos/${id}`);
+        const uid = getState().auth.uid;
+        const todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
         const updates = {
             completed,
             completedAt: completed ? moment().unix() : null

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import TodoApp from "TodoApp";
 import LoginPage from "LoginPage";
 
-import { login, logout } from "Actions";
+import { login, logout, startAddTodos } from "Actions";
 
 import { configureStore } from "ConfigureStore";
 
@@ -18,6 +18,7 @@ class IndexPage extends React.Component {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 store.dispatch(login(user.uid));
+                store.dispatch(startAddTodos());
                 this.props.history.replace("/todoApp");
             }
             else {

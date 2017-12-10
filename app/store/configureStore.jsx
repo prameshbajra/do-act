@@ -3,14 +3,14 @@ import thunk from "redux-thunk";
 
 import { searchTextReducer, authReducer, showCompletedReducer, todoReducer } from "Reducers";
 
-const configureStore = () => {
+const configureStore = (initialState = {}) => {
     const reducer = combineReducers({
         searchText: searchTextReducer,
         showCompleted: showCompletedReducer,
-        auth: authReducer,
-        todos: todoReducer
+        todos: todoReducer,
+        auth: authReducer
     });
-    const store = createStore(reducer, compose(
+    const store = createStore(reducer, initialState, compose(
         applyMiddleware(thunk),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     ));

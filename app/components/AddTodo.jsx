@@ -21,7 +21,7 @@ class AddTodo extends React.Component {
         event.preventDefault();
         const { dispatch } = this.props;
         const todoItem = this.state.inputValue;
-        if (todoItem.length > 5) {
+        if (todoItem.length > 0) {
             this.setState({ inputValue: "" });
             dispatch(startAddTodo(todoItem));
         }
