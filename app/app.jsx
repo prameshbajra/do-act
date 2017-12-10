@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, HashRouter, Router } from "react-router-dom";
 
-import TodoApp from "TodoApp";
+import IndexPage from "IndexPage";
 import TodoApi from "TodoApi";
 import {
     addTodo,
@@ -21,11 +21,10 @@ store.dispatch(startAddTodos());
 $(document).foundation();
 
 ReactDOM.render(
-    <HashRouter>
-        <Provider store={store}>
-            <Route path="/" component={TodoApp} >
-            </Route>
-        </Provider>
-    </HashRouter>,
+    <Provider store={store}>
+        <HashRouter>
+            <Route path="/" component={IndexPage} />
+        </HashRouter>
+    </Provider>,
     document.getElementById("app")
 );

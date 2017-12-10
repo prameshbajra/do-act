@@ -7,13 +7,20 @@ Using react to create a effecient, convienent `Todo` application.
 
 :book: :book: :book: :book: :book:
 
-Use this by :
+__Use this by:__
 
-- `npm install`
+- `npm install` - _There's a long list, Be patient_
 
 - `node server.js`
 
 - `webpack -w` or just `webpack`
+
+<br/>
+
+> You need your own configuration variables from _FIREBASE_.
+> Testing and Dev/Prod have different databases. 
+
+<br/>
 
 __For testing__
 
